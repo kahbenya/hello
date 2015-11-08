@@ -2,11 +2,14 @@
 
 
 from circuits.web import Server, Controller
+import os
 
 
 class Root(Controller):
 
     def index(self):
+        if os.environ.has_key('MSG'):
+            return os.getenv('MSG')
         return "Hello World!"
 
 
